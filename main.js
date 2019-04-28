@@ -7,11 +7,11 @@ const scoreBoard = document.getElementById("scoreBoard");
 const replay = document.getElementById("replay");
 const winner = document.getElementById("textWinner");
 
-let score = [0, 0];
-
 function sleep(miliseconds) {
   return new Promise(resolve => setTimeout(resolve, miliseconds));
 }
+
+const score = [0, 0];
 
 //display the countdown
 async function showCount() {
@@ -52,7 +52,7 @@ function buttonPicked() {
       winner.innerHTML = "Rock vs Rock: Draw!";
     } else if (random == 2) {
       winner.innerHTML = "Rock vs Paper: Paper covers Rock!";
-      score[1]++;
+      score[1]++
     } else {
       winner.innerHTML = "Rock vs Scissors: Rock covers Scissors!"
       score[0]++;
@@ -86,6 +86,12 @@ function buttonPicked() {
   });
 }
 
-replay.addEventListener("click", () => {
-  showCount();
-});
+function main() {
+  replay.addEventListener("click", () => {
+    showCount();
+    buttonPicked();
+
+  });
+}
+
+main();
